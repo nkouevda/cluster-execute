@@ -29,10 +29,8 @@ to servers, in `bin/settings.sh`.
 All output will be stored on the server on which `main.sh` is executed.
 
 If the output is desired locally, run `./bin/main.sh` directly. Otherwise,
-either run `./bin/main.sh` via `ssh`, or use the provided script that
-accomplishes the same:
-
-    ./bin/remote.sh
+either run `./bin/main.sh` via `ssh`, or run `./bin/remote.sh`, which
+accomplishes the same.
 
 Output will be stored in `output/$$/`; the full path to this directory is
 printed by `bin/main.sh` each time.

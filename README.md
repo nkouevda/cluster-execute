@@ -1,7 +1,7 @@
 <!-- Nikita Kouevda -->
-<!-- 2013/09/21 -->
+<!-- 2013/09/28 -->
 
-# cluster-exec
+# cluster-execute
 
 Execute scripts on a cluster of servers connected to the same file system.
 
@@ -12,7 +12,7 @@ This framework is a generalization of the implementation used in
 
 1. Clone this repository:
 
-        git clone https://github.com/nkouevda/cluster-exec.git
+        git clone https://github.com/nkouevda/cluster-execute.git
 
 2. Place the list of servers in `data/servers.txt`, one per line. Empty lines
 and lines starting with `#` will be ignored.

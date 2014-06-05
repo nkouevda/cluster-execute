@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Nikita Kouevda
-# 2013/09/21
+# 2014/06/04
 
 # TODO

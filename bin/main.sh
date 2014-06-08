@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Nikita Kouevda
-# 2014/06/04
+# 2014/06/08
 
 # Change directory to parent directory of location of script
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
@@ -23,7 +23,7 @@ mkdir -p "$stdout_dir" "$stderr_dir"
 echo ~/"$remote_dir/$output_dir/$$/"
 
 # Run remote script on each server in a background subshell
-for server in $(grep -v '^[#$]' "$server_list"); do
+for server in $(grep -vE '^(#|$)' "$server_list"); do
     (
         # Retrieve and write output
         ssh "${ssh_config[@]}" "$username@$server" \

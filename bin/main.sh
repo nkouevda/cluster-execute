@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 # Nikita Kouevda
-# 2014/06/08
+# 2014/09/16
 
-# Change directory to parent directory of location of script
-cd "$(dirname "${BASH_SOURCE[0]}")/.."
+# Switch to parent directory of location of script
+cd "$(dirname "$BASH_SOURCE")/.."
 
 # Load settings
 . "bin/settings.sh"
@@ -23,7 +23,7 @@ mkdir -p "$stdout_dir" "$stderr_dir"
 echo ~/"$remote_dir/$output_dir/$$/"
 
 # Run remote script on each server in a background subshell
-for server in $(grep -vE '^(#|$)' "$server_list"); do
+for server in "$(grep -vE '^(#|$)' "$server_list")"; do
     (
         # Retrieve and write output
         ssh "${ssh_config[@]}" "$username@$server" \
@@ -31,7 +31,7 @@ for server in $(grep -vE '^(#|$)' "$server_list"); do
             2>"$stderr_dir/$server"
 
         # Record the server as offline if ssh returned non-0
-        [[ "$?" -ne 0 ]] && echo "$server" >>"$offline_servers"
+        (( $? )) && echo "$server" >>"$offline_servers"
     ) &
 done
 

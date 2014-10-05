@@ -1,5 +1,5 @@
 <!-- Nikita Kouevda -->
-<!-- 2014/05/15 -->
+<!-- 2014/10/05 -->
 
 # cluster-execute
 
@@ -16,15 +16,15 @@ This framework is a generalization of the implementation used in
         cd cluster-execute
 
 2. Place the list of servers in [`data/servers.txt`](data/servers.txt), one per
-line. Empty lines and lines starting with `#` will be ignored.
+   line. Empty lines and lines starting with `#` will be ignored.
 
 3. In [`bin/settings.sh`](bin/settings.sh), specify the main remote server and
-the username with which to connect to servers.
+   the username with which to connect to servers.
 
 4. Edit [`bin/task.sh`](bin/task.sh), the script to be executed on each server.
 
-5. Run [`./bin/setup.sh`](bin/setup.sh) to copy all local files to the remote
-file system.
+5. Run [`bin/setup.sh`](bin/setup.sh) to copy all local files to the remote file
+   system.
 
 ## Usage
 
@@ -33,7 +33,7 @@ All output will be stored in `output/$$/` on the server on which
 printed by [`bin/main.sh`](bin/main.sh) each time.
 
 If the output is desired locally, run [`bin/main.sh`](bin/main.sh) directly.
-Otherwise, run [`./bin/remote.sh`](bin/remote.sh).
+Otherwise, run [`bin/remote.sh`](bin/remote.sh).
 
 The standard output and error for each server will be stored in
 `output/$$/std{out,err}/`; the concatenated data will be in

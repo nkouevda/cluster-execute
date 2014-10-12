@@ -1,9 +1,9 @@
 <!-- Nikita Kouevda -->
-<!-- 2014/10/05 -->
+<!-- 2014/10/12 -->
 
 # cluster-execute
 
-Execute scripts on a cluster of servers connected to the same file system.
+Parallel execution on server clusters.
 
 This framework is a generalization of the implementation used in
 [ucb-eecs-servers](https://github.com/nkouevda/ucb-eecs-servers).

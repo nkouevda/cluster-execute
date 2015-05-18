@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Nikita Kouevda
-# 2014/09/16
+# 2015/05/18
 
 # Switch to parent directory of location of script
 cd "$(dirname "$BASH_SOURCE")/.."
@@ -23,16 +23,16 @@ mkdir -p "$stdout_dir" "$stderr_dir"
 echo ~/"$remote_dir/$output_dir/$$/"
 
 # Run remote script on each server in a background subshell
-for server in "$(grep -vE '^(#|$)' "$server_list")"; do
-    (
-        # Retrieve and write output
-        ssh "${ssh_config[@]}" "$username@$server" \
-            "$remote_dir/$task_script $server" >"$stdout_dir/$server" \
-            2>"$stderr_dir/$server"
+sed -n '/^[^#]/p' "$server_list" | while read -r server; do
+  (
+    # Retrieve and write output
+    ssh "${ssh_config[@]}" "$username@$server" \
+        "$remote_dir/$task_script $server" >"$stdout_dir/$server" \
+        2>"$stderr_dir/$server"
 
-        # Record the server as offline if ssh returned non-0
-        (( $? )) && echo "$server" >>"$offline_servers"
-    ) &
+    # Record the server as offline if ssh returned nonzero
+    (( $? )) && echo "$server" >>"$offline_servers"
+  ) &
 done
 
 # Wait for all background jobs to finish

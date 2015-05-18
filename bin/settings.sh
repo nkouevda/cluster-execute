@@ -1,11 +1,14 @@
 # Nikita Kouevda
-# 2013/09/28
+# 2015/05/18
 
 # Authentication
 username="TODO"
 server="TODO"
-ssh_config=("-oConnectTimeout=3" "-oServerAliveInterval=3" \
-    "-oStrictHostKeyChecking=no")
+ssh_config=(
+    "-oConnectTimeout=3"
+    "-oServerAliveInterval=3"
+    "-oStrictHostKeyChecking=no"
+)
 
 # Directories and files
 remote_dir="cluster-execute"

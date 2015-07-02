@@ -1,6 +1,3 @@
-<!-- Nikita Kouevda -->
-<!-- 2014/10/12 -->
-
 # cluster-execute
 
 Parallel execution on server clusters.
